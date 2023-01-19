@@ -114,7 +114,7 @@ html{
     left: 32px;
 }
 
-#answer{
+.answer{
     position: absolute;
     width: 336px;
     height: 61px;
@@ -151,7 +151,7 @@ html{
     color: #495057;
 }
 
-#copy{
+.copy{
     position: absolute;
     top: 845px;
     width: 328px;
