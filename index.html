@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 
     <head>
         
@@ -7,16 +7,37 @@
         <meta name="viewport" content="width=device-width">
         <link rel="stylesheet" href="reset.css">
         <link rel="stylesheet" href="style.css">
+        <title>Encriptador challenge</title>
     </head>
-    <body>
-        <header>
 
+    <body>
+
+        <header>
+            <img class="logoa" src="img/logo.png"  alt="logo_alura">
         </header>
+
         <main>
 
+            <textarea class="msg">Ingrese el texto aqui</textarea> 
+            <div class="sectionalert">
+            <img class="alert" src="img/alerta.png">
+            <p class="alerttxt">Solo letras minúsculas y sin acento</p>
+            </div>
+            <div class="buttons">
+                <button class="bencriptar">Encriptar</button>
+                <button class="bdesencriptar">Desencriptar</button>
+                </div>
+
+            <section class="msganswer">
+
+                <img class="muneco" src="img/muñeco.png" alt="muñeco">
+                <textarea id="answer" readonly>Ningún mensaje fue encontrado</textarea>
+                <p>Ingresa el texto que desees encriptar o desencriptar.</p>
+                <button id="copy">Copiar</button>
+            </section>
         </main>
         <footer>
-        
+
         </footer>
     </body>
 </html>
