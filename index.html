@@ -18,22 +18,22 @@
 
         <main>
 
-            <textarea class="msg">Ingrese el texto aqui</textarea> 
+            <textarea id=msginput class="msg">Ingrese el texto aqui</textarea> 
             <div class="sectionalert">
             <img class="alert" src="img/alerta.png">
             <p class="alerttxt">Solo letras minúsculas y sin acento</p>
             </div>
             <div class="buttons">
-                <button class="bencriptar">Encriptar</button>
-                <button class="bdesencriptar">Desencriptar</button>
+                <button id="buttone" class="bencriptar">Encriptar</button>
+                <button id="buttond" class="bdesencriptar">Desencriptar</button>
                 </div>
 
-            <section class="msganswer">
+            <section id="msgdes" class="msganswer">
 
                 <img class="muneco" src="img/muñeco.png" alt="muñeco">
-                <textarea class="answer" readonly>Ningún mensaje fue encontrado</textarea>
+                <textarea id="msgoutput" class="answer" readonly>Ningún mensaje fue encontrado</textarea>
                 <p>Ingresa el texto que desees encriptar o desencriptar.</p>
-                <button class="copy">Copiar</button>
+                <button id="buttoncopy" class="copy">Copiar</button>
             </section>
         </main>
         <footer>
@@ -41,3 +41,56 @@
         </footer>
     </body>
 </html>
+
+<script>
+
+    var msginput = document.getElementById("msginput");
+    var msgoutput = document.getElementById("msgoutput");
+    
+    var buttone = document.getElementById("buttone");
+    var buttond = document.getElementById("buttond");
+    var buttoncopy = document.getElementById("buttoncopy");
+    
+    var msgdes = document.getElementById("msgsdes");
+
+    buttoncopy.disabled = true;
+
+    function encriptar() {
+        msgoutput.innerHTML = (((((msginput.value).replace(/\e/g,"enter")).replace(/\i/g,"imes")).replace(/\a/g,"ai")).replace(/\o/g,"ober")).replace(/\u/g,"ufat");
+             
+        botonCopiar.disabled = false;
+                
+        if(msginput.value.trim() == ""){
+            msgdes.style.display="";  
+        }
+        else{
+            msgdes.style.display="none"; 
+        }       
+        
+        msginput.value = "";        
+    }
+
+    function desencriptar() {
+        msgoutput.innerHTML = (((((msginput.value).replace(/enter/g,"e")).replace(/imes/g,"i")).replace(/ai/g,"a")).replace(/ober/g,"o")).replace(/ufat/g,"u");
+
+        buttoncopy.disabled = false;
+
+        if(msginput.value.trim() == ""){
+            msgdes.style.display="";  
+        }
+        else{
+            msgdes.style.display="none"; 
+        }   
+
+        msginput.value = "";   
+    }
+
+    buttone.onclick = encriptar;
+    buttond.onclick = desencriptar;
+    buttoncopy.addEventListener("click",function(){
+        msgoutput.focus();
+        document.execCommand("selectAll");
+        document.execCommand("copy");      
+    })       
+
+</script>
